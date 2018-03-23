@@ -1,0 +1,22 @@
+<h1>New Product</h1>
+<ul *ngFor="let error of errors">
+  <li>{{error.message}}</li>
+</ul>
+<ul>
+  <li *ngIf="name.invalid">Name can not be blank</li>
+  <!-- <li *ngIf="name.errors.required">Name too short</li> -->
+  <li *ngIf="qty.invalid">qty can not be blank</li>
+  <li *ngIf="price.invalid">price can not be blank</li>  
+  <!-- <li *ngIf="qty.errors.min">qty must greater than 0</li> -->
+  <!-- <li *ngIf="price.errors.min">price must greater than 0</li>    -->
+</ul>
+<form name="new">
+  <p><label>Name:</label><input type="text" name="product.name" [(ngModel)]="product.name" required minlength="3" #name="ngModel"> </p>
+  <p><label>Qty:</label><input type="text" name="product.qty" [(ngModel)]="product.qty" required min="0" #qty="ngModel"> </p>
+  <p><label>Price:</label><input type="text" name="product.price" [(ngModel)]="product.price" required min="0" #price="ngModel"> </p>
+</form>
+<p id="buttons"> 
+  <button (click)="resetCreate()">RESET</button>
+  <button *ngIf="name.valid&&qty.valid&&price.valid" (click)="createProduct()">CREATE</button>
+  <button *ngIf="name.invalid||qty.invalid||price.invalid" disabled="disabled">CREATE</button>
+</p>

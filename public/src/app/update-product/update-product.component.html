@@ -1,0 +1,15 @@
+<h1>Update Product</h1>
+<ul *ngFor="let error of errors">
+  <li>{{error.message}}</li>
+</ul>
+<form>
+  <p><label>Name:</label><input type="text" name="product.name" [(ngModel)]="product.name" required minlength="3" #name="ngModel"> </p>
+  <p><label>Qty:</label><input type="number" name="product.qty" [(ngModel)]="product.qty" required min="0" #qty="ngModel"> </p>
+  <p><label>Price($):</label><input type="number" name="product.price" [(ngModel)]="product.price" required min="0" #price="ngModel"> </p>
+</form>
+<p id="buttons"> 
+  <button (click)="resetUpdate()">RESET</button> 
+  <button *ngIf="name.valid&&qty.valid&&price.valid" (click)="updateProduct()">UPDATE</button> 
+  <button *ngIf="name.invalid||qty.invalid||price.invalid" disabled="disabled">UPDATE</button>
+</p>
+

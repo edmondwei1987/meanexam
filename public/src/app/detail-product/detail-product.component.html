@@ -1,0 +1,11 @@
+<h1>Product Details</h1> 
+<p>To delete a product, the qty must be 0.</p>
+<p><label >Name</label>{{product.name}}</p>
+<p><label >Qty</label>{{product.qty}}</p>
+<p><label >Price</label>${{product.price}}</p>
+{{disableDelete}}
+<p id="buttons"> 
+  <button [routerLink]="['/products']">BACK</button> 
+  <button *ngIf="!disableDelete" (click)="deleteProduct()">DELETE</button>
+  <button *ngIf="disableDelete" disabled="disabled">DELETE</button>
+</p>

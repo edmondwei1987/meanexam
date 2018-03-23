@@ -1,0 +1,22 @@
+button{
+    height:25px;
+    width:80px;
+    border-radius: 4px;
+    margin:4px;
+}
+h1{
+    display: inline-block;
+    margin-right: 160px;
+}
+table td,th{
+    border:solid black 1px;
+}
+table{
+    border-collapse: collapse;
+}
+table th{
+    background-color: lightgray;
+}
+#add{
+    width:130px;
+}
